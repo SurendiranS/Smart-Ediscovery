@@ -13,3 +13,4 @@ To use this project, run the [app.py](https://github.com/SurendiranS/Smart-Edisc
 ```bash
 $ streamlit run app.py
 ```
+![image](https://github.com/SurendiranS/Smart-Ediscovery/assets/43315429/0f4de6da-ed44-4321-9cd2-831f72126c2c)
