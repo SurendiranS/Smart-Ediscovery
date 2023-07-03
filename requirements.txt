@@ -1,0 +1,6 @@
+chromadb
+streamlit
+unstructured
+sentence_transformers
+langchain
+accelerate
