@@ -78,10 +78,13 @@ def main():
   if buttons.button('Find'):
       db= embedDocs(directory)
       llm = initializeLLM()
-      retrieval_chain = RetrievalQA.from_chain_type(llm, chain_type="stuff", retriever=db.as_retriever())
-      answer = retrieval_chain.run(query)
-      buttons.markdown('**Answer :**')
-      buttons.markdown(':blue[' + answer + ']' )
+      retrieval_chain = RetrievalQA.from_chain_type(llm, chain_type="stuff", retriever=db.as_retriever(), return_source_documents=True)
+      answer = retrieval_chain(query)
+      buttons.info('**Answer :**')
+      buttons.markdown(':blue[' + answer['result'] + ']' )
+      buttons.info('**Source :**')
+      for i in answer['source_documents']:  
+        buttons.markdown('* :green[' + i.metadata['source'] + ']' )
 
 
 if __name__ == '__main__':
